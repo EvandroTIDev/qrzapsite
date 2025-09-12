@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRZap - Seu Scanner e Gerador de QR Codes</title>
+    <meta name="description" content="QRZap é o aplicativo definitivo para escanear e gerar códigos QR. Rápido, seguro e fácil de usar. Baixe grátis na Google Play Store.">
+    <meta name="keywords" content="QR code, scanner, gerador, aplicativo, mobile, Android">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qrzap.app/">
+    <meta property="og:title" content="QRZap - Scanner e Gerador de QR Codes">
+    <meta property="og:description" content="O aplicativo mais completo para trabalhar com códigos QR. Escaneie e gere QR codes de forma rápida e segura.">
+    <meta property="og:image" content="https://qrzap.app/images/qrzap-logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://qrzap.app/">
+    <meta property="twitter:title" content="QRZap - Scanner e Gerador de QR Codes">
+    <meta property="twitter:description" content="O aplicativo mais completo para trabalhar com códigos QR. Escaneie e gere QR codes de forma rápida e segura.">
+    <meta property="twitter:image" content="https://qrzap.app/images/qrzap-logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- SVG Icons -->
+    <svg style="display: none;">
+        <!-- QR Scanner Icon -->
+        <symbol id="icon-qr-scanner" viewBox="0 0 24 24">
+            <path d="M3 11h8V3H3v8zm2-6h4v4H5V5zm6 12h8v8h-8v-8zm2 6h4v-4h-4v4zM3 21h8v-8H3v8zm2-6h4v4H5v-4zm13-8V3h-2v4h4V5h-2zm0 6h-2v2h2v-2zm-6-6V3h-2v4h2zm-2 2h2v2h-2V9zm2 2h2v2h-2v-2zm2-2h2v2h-2V9zm2 2h2v2h-2v-2zm-6 2h2v2h-2v-2zm2 2h2v2h-2v-2zm2-2h2v2h-2v-2z"/>
+        </symbol>
+        
+        <!-- QR Generator Icon -->
+        <symbol id="icon-qr-generator" viewBox="0 0 24 24">
+            <path d="M3 11h8V3H3v8zm2-6h4v4H5V5zm8 8h2v2h-2v-2zm2-2h2v2h-2V9zm-2 4h2v2h-2v-2zm2 2h2v2h-2v-2zm-6-2h2v2h-2v-2zm2 2h2v2h-2v-2zm-2-4h2v2h-2V9zm2 2h2v2h-2v-2zm6-8h2v2h-2V5zm2 2h2v2h-2V7zm-2 4h2v2h-2v-2zm2 2h2v2h-2v-2zm-6-2h2v2h-2V9zm2 2h2v2h-2v-2zm-2-4h2v2h-2V5zm2 2h2v2h-2V7z"/>
+        </symbol>
+        
+        <!-- History Icon -->
+        <symbol id="icon-history" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+        </symbol>
+        
+        <!-- Share Icon -->
+        <symbol id="icon-share" viewBox="0 0 24 24">
+            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+        </symbol>
+        
+        <!-- Cloud Sync Icon -->
+        <symbol id="icon-cloud-sync" viewBox="0 0 24 24">
+            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+        </symbol>
+        
+        <!-- Security Icon -->
+        <symbol id="icon-security" viewBox="0 0 24 24">
+            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11H16V16H8V11H9.2V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.4,8.7 10.4,10V11H13.6V10C13.6,8.7 12.8,8.2 12,8.2Z"/>
+        </symbol>
+        
+        <!-- Download Icon -->
+        <symbol id="icon-download" viewBox="0 0 24 24">
+            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+        </symbol>
+        
+        <!-- Menu Icon -->
+        <symbol id="icon-menu" viewBox="0 0 24 24">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </symbol>
+        
+        <!-- Close Icon -->
+        <symbol id="icon-close" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </symbol>
+        
+        <!-- Arrow Up Icon -->
+        <symbol id="icon-arrow-up" viewBox="0 0 24 24">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </symbol>
+        
+        <!-- Arrow Right Icon -->
+        <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+        </symbol>
+        
+        <!-- Star Icon -->
+        <symbol id="icon-star" viewBox="0 0 24 24">
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+        </symbol>
+        
+        <!-- Flash Icon -->
+        <symbol id="icon-flash" viewBox="0 0 24 24">
+            <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+        </symbol>
+        
+        <!-- Lock Icon -->
+        <symbol id="icon-lock" viewBox="0 0 24 24">
+            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+        </symbol>
+        
+        <!-- Mail Icon -->
+        <symbol id="icon-mail" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </symbol>
+        
+        <!-- Check Icon -->
+        <symbol id="icon-check" viewBox="0 0 24 24">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+        </symbol>
+    </svg>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <img src="images/icon_qrzap.png" alt="QRZap Logo" class="nav__logo-img">
+                <span class="nav__logo-text">QRZap</span>
+            </div>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Início</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#features" class="nav__link">Recursos</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#download" class="nav__link">Download</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">Sobre</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="privacy.html" class="nav__link">Privacidade</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="terms.html" class="nav__link">Termos</a>
+                    </li>
+                </ul>
+                
+                <div class="nav__close" id="nav-close">
+                    <svg class="nav__close-icon">
+                        <use href="#icon-close"></use>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="nav__toggle" id="nav-toggle">
+                <svg class="nav__toggle-icon">
+                    <use href="#icon-menu"></use>
+                </svg>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+        <!-- Home Section -->
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <div class="home__content">
+                    <h1 class="home__title">
+                        Escaneie e gere <span class="gradient-text">QR Codes</span> de forma rápida e segura
+                    </h1>
+                    
+                    <p class="home__description">
+                        QRZap é o aplicativo definitivo para trabalhar com códigos QR. 
+                        Escaneie qualquer QR code, gere novos códigos personalizados e 
+                        mantenha tudo organizado em um só lugar.
+                    </p>
+                    
+                    <div class="home__buttons">
+                        <a href="https://play.google.com/store/apps/details?id=com.empf.qrzap" 
+                           class="button button--primary" target="_blank">
+                            <img src="images/google-play-badge.png" alt="Baixar na Google Play" class="download-badge">
+                        </a>
+                        
+                        <a href="#features" class="button button--secondary">
+                            <span>Conhecer Recursos</span>
+                            <svg class="button__icon">
+                                <use href="#icon-arrow-right"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="home__stats">
+                        <div class="stat">
+                            <span class="stat__number">10K+</span>
+                            <span class="stat__label">Downloads</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">4.8★</span>
+                            <span class="stat__label">Avaliação</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">100%</span>
+                            <span class="stat__label">Gratuito</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="home__images">
+                    <div class="home__phone">
+                        <img src="images/phone-mockup.png" alt="QRZap App Preview" class="home__phone-img">
+                    </div>
+                    
+                    <div class="home__qr-codes">
+                        <div class="qr-code qr-code--1">
+                            <img src="images/qr-sample-1.png" alt="QR Code Sample">
+                        </div>
+                        <div class="qr-code qr-code--2">
+                            <img src="images/qr-sample-2.png" alt="QR Code Sample">
+                        </div>
+                        <div class="qr-code qr-code--3">
+                            <img src="images/qr-sample-3.png" alt="QR Code Sample">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features section" id="features">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Recursos Principais</h2>
+                    <p class="section__subtitle">
+                        Tudo que você precisa para trabalhar com QR codes de forma profissional
+                    </p>
+                </div>
+                
+                <div class="features__container grid">
+                    <div class="feature">
+                        <div class="feature__icon">
+                            <svg class="feature__icon-svg">
+                                <use href="#icon-qr-scanner"></use>
+                            </svg>
+                        </div>
+                        <h3 class="feature__title">Scanner Avançado</h3>
+                        <p class="feature__description">
+                            Escaneie qualquer tipo de QR code com precisão e velocidade. 
+                            Detecta automaticamente URLs, contatos, WiFi e muito mais.
+                        </p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature__icon">
+                            <svg class="feature__icon-svg">
+                                <use href="#icon-qr-generator"></use>
+                            </svg>
+                        </div>
+                        <h3 class="feature__title">Gerador Personalizado</h3>
+                        <p class="feature__description">
+                            Crie QR codes personalizados com diferentes estilos e cores. 
+                            Gere códigos para textos, URLs, contatos e configurações WiFi.
+                        </p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature__icon">
+                            <svg class="feature__icon-svg">
+                                <use href="#icon-history"></use>
+                            </svg>
+                        </div>
+                        <h3 class="feature__title">Histórico Completo</h3>
+                        <p class="feature__description">
+                            Mantenha um registro de todos os QR codes escaneados e gerados. 
+                            Organize e encontre facilmente seus códigos.
+                        </p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature__icon">
+                            <svg class="feature__icon-svg">
+                                <use href="#icon-share"></use>
+                            </svg>
+                        </div>
+                        <h3 class="feature__title">Compartilhamento</h3>
+                        <p class="feature__description">
+                            Compartilhe QR codes facilmente através de qualquer aplicativo. 
+                            Envie códigos como imagem ou texto.
+                        </p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature__icon">
+                            <svg class="feature__icon-svg">
+                                <use href="#icon-cloud-sync"></use>
+                            </svg>
+                        </div>
+                        <h3 class="feature__title">Sincronização</h3>
+                        <p class="feature__description">
+                            Sincronize seus dados entre dispositivos com conta Google. 
+                            Seus QR codes sempre disponíveis onde você estiver.
+                        </p>
+                    </div>
+                    
+                    <div class="feature">
+                        <div class="feature__icon">
+                            <svg class="feature__icon-svg">
+                                <use href="#icon-security"></use>
+                            </svg>
+                        </div>
+                        <h3 class="feature__title">Privacidade</h3>
+                        <p class="feature__description">
+                            Use o app sem criar conta ou sincronize com segurança. 
+                            Seus dados protegidos e processados localmente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="download section" id="download">
+            <div class="container">
+                <div class="download__container">
+                    <div class="download__content">
+                        <h2 class="download__title">Baixe o QRZap agora</h2>
+                        <p class="download__description">
+                            Disponível gratuitamente na Google Play Store. 
+                            Instale e comece a usar imediatamente.
+                        </p>
+                        
+                        <div class="download__buttons">
+                            <a href="https://play.google.com/store/apps/details?id=com.empf.qrzap" 
+                               class="button button--primary button--large" target="_blank">
+                                <img src="images/google-play-badge.png" alt="Baixar na Google Play" class="download-badge">
+                            </a>
+                        </div>
+                        
+                        <div class="download__info">
+                            <div class="info-item">
+                                <svg class="info-item__icon">
+                                    <use href="#icon-check"></use>
+                                </svg>
+                                <span>Gratuito para sempre</span>
+                            </div>
+                            <div class="info-item">
+                                <svg class="info-item__icon">
+                                    <use href="#icon-check"></use>
+                                </svg>
+                                <span>Sem anúncios intrusivos</span>
+                            </div>
+                            <div class="info-item">
+                                <svg class="info-item__icon">
+                                    <use href="#icon-check"></use>
+                                </svg>
+                                <span>Funciona offline</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="download__preview">
+                        <div class="phone-mockup">
+                            <img src="images/phone-download.png" alt="QRZap Download Preview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="container">
+                <div class="about__container grid">
+                    <div class="about__content">
+                        <h2 class="about__title">Sobre o QRZap</h2>
+                        <p class="about__description">
+                            O QRZap foi desenvolvido pensando na simplicidade e eficiência. 
+                            Nossa missão é tornar o trabalho com códigos QR mais fácil e acessível para todos.
+                        </p>
+                        
+                        <div class="about__features">
+                            <div class="about__feature">
+                                <svg class="about__feature-icon">
+                                    <use href="#icon-star"></use>
+                                </svg>
+                                <div>
+                                    <h4>Interface Intuitiva</h4>
+                                    <p>Design limpo e fácil de usar</p>
+                                </div>
+                            </div>
+                            
+                            <div class="about__feature">
+                                <svg class="about__feature-icon">
+                                    <use href="#icon-flash"></use>
+                                </svg>
+                                <div>
+                                    <h4>Performance Rápida</h4>
+                                    <p>Escaneamento instantâneo</p>
+                                </div>
+                            </div>
+                            
+                            <div class="about__feature">
+                                <svg class="about__feature-icon">
+                                    <use href="#icon-lock"></use>
+                                </svg>
+                                <div>
+                                    <h4>Dados Seguros</h4>
+                                    <p>Privacidade garantida</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="about__contact">
+                            <h4>Contato</h4>
+                            <p>Dúvidas, sugestões ou problemas? Entre em contato:</p>
+                            <a href="mailto:evandrotielcop@gmail.com" class="contact-link">
+                                <svg class="contact-link__icon">
+                                    <use href="#icon-mail"></use>
+                                </svg>
+                                evandrotielcop@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="about__image">
+                        <img src="images/about-illustration.png" alt="Sobre QRZap">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__container grid">
+                <div class="footer__content">
+                    <div class="footer__logo">
+                        <img src="images/icon_qrzap.png" alt="QRZap Logo">
+                        <span>QRZap</span>
+                    </div>
+                    <p class="footer__description">
+                        O aplicativo definitivo para escanear e gerar códigos QR. 
+                        Rápido, seguro e fácil de usar.
+                    </p>
+                    
+                    <div class="footer__social">
+                        <a href="mailto:evandrotielcop@gmail.com" class="footer__social-link">
+                            <svg class="footer__social-icon">
+                                <use href="#icon-mail"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer__content">
+                    <h3 class="footer__title">Links Rápidos</h3>
+                    <ul class="footer__links">
+                        <li><a href="#home" class="footer__link">Início</a></li>
+                        <li><a href="#features" class="footer__link">Recursos</a></li>
+                        <li><a href="#download" class="footer__link">Download</a></li>
+                        <li><a href="#about" class="footer__link">Sobre</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__content">
+                    <h3 class="footer__title">Legal</h3>
+                    <ul class="footer__links">
+                        <li><a href="privacy.html" class="footer__link">Política de Privacidade</a></li>
+                        <li><a href="terms.html" class="footer__link">Termos de Uso</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__content">
+                    <h3 class="footer__title">Download</h3>
+                    <a href="https://play.google.com/store/apps/details?id=com.empf.qrzap" 
+                       class="footer__download" target="_blank">
+                        <img src="images/google-play-badge.png" alt="Baixar na Google Play">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer__copy">
+                <p>&copy; 2025 QRZap. Todos os direitos reservados.</p>
+                <p>Desenvolvido por Evandro Marques Pimenta Filho</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Up -->
+    <a href="#" class="scrollup" id="scroll-up">
+        <svg class="scrollup__icon">
+            <use href="#icon-arrow-up"></use>
+        </svg>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

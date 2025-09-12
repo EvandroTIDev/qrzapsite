@@ -1,0 +1,135 @@
+<!-- Google Analytics 4 (gtag.js) -->
+<!-- Substitua GA_MEASUREMENT_ID pelo seu ID de medição do Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'GA_MEASUREMENT_ID', {
+    page_title: 'QRZap - Scanner e Gerador de QR Codes',
+    page_location: window.location.href,
+    custom_map: {
+      'custom_parameter_1': 'app_name',
+      'custom_parameter_2': 'page_type'
+    }
+  });
+
+  // Eventos personalizados para o QRZap
+  gtag('event', 'page_view', {
+    'app_name': 'QRZap',
+    'page_type': 'website'
+  });
+
+  // Rastrear cliques no botão de download
+  document.addEventListener('DOMContentLoaded', function() {
+    const downloadButtons = document.querySelectorAll('a[href*="play.google.com"]');
+    downloadButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        gtag('event', 'download_click', {
+          'event_category': 'Engagement',
+          'event_label': 'Google Play Store',
+          'value': 1
+        });
+      });
+    });
+
+    // Rastrear visualizações de seções
+    const sections = ['home', 'features', 'download', 'about'];
+    sections.forEach(sectionId => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              gtag('event', 'section_view', {
+                'event_category': 'Engagement',
+                'event_label': sectionId,
+                'value': 1
+              });
+            }
+          });
+        }, { threshold: 0.5 });
+        
+        observer.observe(section);
+      }
+    });
+
+    // Rastrear cliques em links de política e termos
+    const legalLinks = document.querySelectorAll('a[href*="privacy"], a[href*="terms"]');
+    legalLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        const linkType = this.href.includes('privacy') ? 'Privacy Policy' : 'Terms of Service';
+        gtag('event', 'legal_link_click', {
+          'event_category': 'Navigation',
+          'event_label': linkType,
+          'value': 1
+        });
+      });
+    });
+
+    // Rastrear tempo na página
+    let startTime = Date.now();
+    window.addEventListener('beforeunload', function() {
+      const timeSpent = Math.round((Date.now() - startTime) / 1000);
+      gtag('event', 'time_on_page', {
+        'event_category': 'Engagement',
+        'event_label': 'Page Duration',
+        'value': timeSpent
+      });
+    });
+  });
+</script>
+
+<!-- Google Tag Manager (opcional) -->
+<!-- Substitua GTM-XXXXXXX pelo seu ID do GTM -->
+<!--
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+-->
+
+<!-- Meta tags para SEO e redes sociais -->
+<meta property="og:site_name" content="QRZap">
+<meta property="og:type" content="website">
+<meta property="og:title" content="QRZap - Scanner e Gerador de QR Codes">
+<meta property="og:description" content="O aplicativo definitivo para escanear e gerar códigos QR. Rápido, seguro e fácil de usar.">
+<meta property="og:image" content="https://qrzap.app/images/qrzap-logo.png">
+<meta property="og:url" content="https://qrzap.app">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="QRZap - Scanner e Gerador de QR Codes">
+<meta name="twitter:description" content="O aplicativo definitivo para escanear e gerar códigos QR. Rápido, seguro e fácil de usar.">
+<meta name="twitter:image" content="https://qrzap.app/images/qrzap-logo.png">
+
+<!-- Schema.org markup para SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "QRZap",
+  "description": "Scanner e gerador de códigos QR para Android",
+  "url": "https://qrzap.app",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Android",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "BRL"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Evandro Marques Pimenta Filho",
+    "email": "evandrotielcop@gmail.com"
+  },
+  "downloadUrl": "https://play.google.com/store/apps/details?id=com.empf.qrzap",
+  "screenshot": "https://qrzap.app/images/phone-mockup.png",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "1000"
+  }
+}
+</script>
