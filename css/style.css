@@ -12,6 +12,10 @@
   --secondary-color: #1800AD;      /* Mesmo azul para consistência */
   --accent-color: #1800AD;         /* Azul para destaques */
   
+  /* Bootstrap custom colors */
+  --bs-primary: #1800AD;
+  --bs-primary-rgb: 24, 0, 173;
+  
   /* Cores de texto e fundo */
   --title-color: #000000;          /* Preto puro */
   --text-color: #333333;           /* Cinza escuro para texto */
@@ -227,6 +231,31 @@ a:hover {
   box-shadow: var(--shadow-sm);
 }
 
+/* Bootstrap navbar customizations */
+.navbar-brand {
+  font-weight: var(--font-bold);
+}
+
+.navbar-nav .nav-link {
+  font-weight: var(--font-medium);
+  color: var(--text-color) !important;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--primary-color) !important;
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
 .nav {
   height: var(--header-height);
   display: flex;
@@ -327,6 +356,28 @@ a:hover {
   display: flex;
   align-items: center;
   background-color: #ffffff !important;
+}
+
+/* Bootstrap home section adjustments */
+.home .container {
+  padding-top: 2rem;
+}
+
+.home .display-4 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .home .display-4 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home .display-4 {
+    font-size: 4rem;
+  }
 }
 
 .home__container {
@@ -587,6 +638,40 @@ a:hover {
   font-size: var(--normal-font-size);
 }
 
+/* Bootstrap button customizations */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  font-weight: var(--font-medium);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color-alt);
+  border-color: var(--primary-color-alt);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  font-weight: var(--font-medium);
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-light:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
 .download-badge {
   height: 50px;
   transition: 0.3s;
@@ -658,6 +743,27 @@ a:hover {
   box-shadow: var(--shadow-lg);
 }
 
+/* Bootstrap card customizations */
+.card {
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .card-body {
+    padding: 1.5rem;
+  }
+}
+
 .feature__icon {
   width: 80px;
   height: 80px;
@@ -691,6 +797,18 @@ a:hover {
 .download {
   background: var(--primary-color);
   color: #fff;
+}
+
+/* Bootstrap download section customizations */
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.download .btn-light {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: var(--primary-color);
+  font-weight: var(--font-medium);
 }
 
 .download__container {
@@ -990,6 +1108,23 @@ a:hover {
   background-color: #000000;
   color: #ffffff;
   padding: 3rem 0 1rem;
+}
+
+/* Bootstrap footer customizations */
+.bg-dark {
+  background-color: #000000 !important;
+}
+
+.footer .btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.footer .btn-outline-light:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
 }
 
 .footer__container {
@@ -1385,7 +1520,7 @@ html, body {
 }
 
 /* Garantir contraste de texto em todas as páginas */
-body, .container, .section, .home, .features, .about, .download {
+body, .container, .section, .home, .features, .about {
   background-color: #ffffff !important;
 }
 
@@ -1415,6 +1550,20 @@ a:hover {
 
 .footer * {
   color: #ffffff !important;
+}
+
+/* Bootstrap text color overrides */
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+/* Bootstrap background overrides */
+.bg-white {
+  background-color: #ffffff !important;
 }
 
 /*=============== CORREÇÃO DE ÍCONES SVG ===============*/

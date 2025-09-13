@@ -24,6 +24,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     
@@ -118,45 +121,42 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <nav class="nav container">
-            <div class="nav__logo">
-                <img src="images/icon_qrzap.png" alt="QRZap Logo" class="nav__logo-img">
-                <span class="nav__logo-text">QRZap</span>
-            </div>
-            
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">Início</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#features" class="nav__link">Recursos</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#download" class="nav__link">Download</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#about" class="nav__link">Sobre</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="privacy.html" class="nav__link">Privacidade</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="terms.html" class="nav__link">Termos</a>
-                    </li>
-                </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="#home">
+                    <img src="images/icon_qrzap.png" alt="QRZap Logo" width="32" height="32" class="me-2">
+                    <span class="fw-bold text-primary fs-4">QRZap</span>
+                </a>
                 
-                <div class="nav__close" id="nav-close">
-                    <svg class="nav__close-icon">
-                        <use href="#icon-close"></use>
-                    </svg>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium active" href="#home">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium" href="#features">Recursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium" href="#download">Download</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium" href="#about">Sobre</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fw-medium" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Legal
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="privacy.html">Privacidade</a></li>
+                                <li><a class="dropdown-item" href="terms.html">Termos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            
-            <div class="nav__toggle" id="nav-toggle">
-                <svg class="nav__toggle-icon">
-                    <use href="#icon-menu"></use>
-                </svg>
             </div>
         </nav>
     </header>
@@ -165,62 +165,75 @@
     <main class="main">
         <!-- Home Section -->
         <section class="home section" id="home">
-            <div class="home__container container grid">
-                <div class="home__content">
-                    <h1 class="home__title">
-                        Escaneie e gere <span class="gradient-text">QR Codes</span> de forma rápida e segura
-                    </h1>
-                    
-                    <p class="home__description">
-                        QRZap é o aplicativo definitivo para trabalhar com códigos QR. 
-                        Escaneie qualquer QR code, gere novos códigos personalizados e 
-                        mantenha tudo organizado em um só lugar.
-                    </p>
-                    
-                    <div class="home__buttons">
-                        <a href="https://play.google.com/store/apps/details?id=com.empf.qrzap" 
-                           class="button button--primary" target="_blank">
-                            <img src="images/google-play-badge.png" alt="Baixar na Google Play" class="download-badge">
-                        </a>
-                        
-                        <a href="#features" class="button button--secondary">
-                            <span>Conhecer Recursos</span>
-                            <svg class="button__icon">
-                                <use href="#icon-arrow-right"></use>
-                            </svg>
-                        </a>
+            <div class="container">
+                <div class="row align-items-center min-vh-100">
+                    <div class="col-lg-6 col-md-12 mb-5 mb-lg-0">
+                        <div class="home__content">
+                            <h1 class="display-4 fw-bold mb-4">
+                                Escaneie e gere <span class="text-primary">QR Codes</span> de forma rápida e segura
+                            </h1>
+                            
+                            <p class="lead mb-4 text-muted">
+                                QRZap é o aplicativo definitivo para trabalhar com códigos QR. 
+                                Escaneie qualquer QR code, gere novos códigos personalizados e 
+                                mantenha tudo organizado em um só lugar.
+                            </p>
+                            
+                            <div class="d-flex flex-column flex-sm-row gap-3 mb-5">
+                                <a href="https://play.google.com/store/apps/details?id=com.empf.qrzap" 
+                                   class="btn btn-primary btn-lg px-4 py-3 d-flex align-items-center justify-content-center" target="_blank">
+                                    <img src="images/google-play-badge.png" alt="Baixar na Google Play" height="50" class="me-2">
+                                    <span class="d-none d-sm-inline">Baixar na Google Play</span>
+                                </a>
+                                
+                                <a href="#features" class="btn btn-outline-primary btn-lg px-4 py-3 d-flex align-items-center justify-content-center">
+                                    <span>Conhecer Recursos</span>
+                                    <svg class="ms-2" width="20" height="20" fill="currentColor">
+                                        <use href="#icon-arrow-right"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="row g-4">
+                                <div class="col-4">
+                                    <div class="text-center">
+                                        <div class="h3 fw-bold text-primary mb-1">10K+</div>
+                                        <small class="text-muted">Downloads</small>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="text-center">
+                                        <div class="h3 fw-bold text-primary mb-1">4.8★</div>
+                                        <small class="text-muted">Avaliação</small>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="text-center">
+                                        <div class="h3 fw-bold text-primary mb-1">100%</div>
+                                        <small class="text-muted">Gratuito</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="home__stats">
-                        <div class="stat">
-                            <span class="stat__number">10K+</span>
-                            <span class="stat__label">Downloads</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat__number">4.8★</span>
-                            <span class="stat__label">Avaliação</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat__number">100%</span>
-                            <span class="stat__label">Gratuito</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="home__images">
-                    <div class="home__phone">
-                        <img src="images/phone-mockup.png" alt="QRZap App Preview" class="home__phone-img">
-                    </div>
-                    
-                    <div class="home__qr-codes">
-                        <div class="qr-code qr-code--1">
-                            <img src="images/qr-sample-1.png" alt="QR Code Sample">
-                        </div>
-                        <div class="qr-code qr-code--2">
-                            <img src="images/qr-sample-2.png" alt="QR Code Sample">
-                        </div>
-                        <div class="qr-code qr-code--3">
-                            <img src="images/qr-sample-3.png" alt="QR Code Sample">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="home__images position-relative">
+                            <div class="home__phone mx-auto">
+                                <img src="images/phone-mockup.png" alt="QRZap App Preview" class="home__phone-img img-fluid">
+                            </div>
+                            
+                            <div class="home__qr-codes">
+                                <div class="qr-code qr-code--1">
+                                    <img src="images/qr-sample-1.png" alt="QR Code Sample" class="img-fluid">
+                                </div>
+                                <div class="qr-code qr-code--2">
+                                    <img src="images/qr-sample-2.png" alt="QR Code Sample" class="img-fluid">
+                                </div>
+                                <div class="qr-code qr-code--3">
+                                    <img src="images/qr-sample-3.png" alt="QR Code Sample" class="img-fluid">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -228,140 +241,175 @@
         </section>
 
         <!-- Features Section -->
-        <section class="features section" id="features">
+        <section class="features section py-5" id="features">
             <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title">Recursos Principais</h2>
-                    <p class="section__subtitle">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">Recursos Principais</h2>
+                    <p class="lead text-muted">
                         Tudo que você precisa para trabalhar com QR codes de forma profissional
                     </p>
                 </div>
                 
-                <div class="features__container grid">
-                    <div class="feature">
-                        <div class="feature__icon">
-                            <svg class="feature__icon-svg">
-                                <use href="#icon-qr-scanner"></use>
-                            </svg>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="feature__icon mx-auto mb-3">
+                                    <svg class="feature__icon-svg">
+                                        <use href="#icon-qr-scanner"></use>
+                                    </svg>
+                                </div>
+                                <h5 class="card-title fw-bold">Scanner Avançado</h5>
+                                <p class="card-text text-muted">
+                                    Escaneie qualquer tipo de QR code com precisão e velocidade. 
+                                    Detecta automaticamente URLs, contatos, WiFi e muito mais.
+                                </p>
+                            </div>
                         </div>
-                        <h3 class="feature__title">Scanner Avançado</h3>
-                        <p class="feature__description">
-                            Escaneie qualquer tipo de QR code com precisão e velocidade. 
-                            Detecta automaticamente URLs, contatos, WiFi e muito mais.
-                        </p>
                     </div>
                     
-                    <div class="feature">
-                        <div class="feature__icon">
-                            <svg class="feature__icon-svg">
-                                <use href="#icon-qr-generator"></use>
-                            </svg>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="feature__icon mx-auto mb-3">
+                                    <svg class="feature__icon-svg">
+                                        <use href="#icon-qr-generator"></use>
+                                    </svg>
+                                </div>
+                                <h5 class="card-title fw-bold">Gerador Personalizado</h5>
+                                <p class="card-text text-muted">
+                                    Crie QR codes personalizados com diferentes estilos e cores. 
+                                    Gere códigos para textos, URLs, contatos e configurações WiFi.
+                                </p>
+                            </div>
                         </div>
-                        <h3 class="feature__title">Gerador Personalizado</h3>
-                        <p class="feature__description">
-                            Crie QR codes personalizados com diferentes estilos e cores. 
-                            Gere códigos para textos, URLs, contatos e configurações WiFi.
-                        </p>
                     </div>
                     
-                    <div class="feature">
-                        <div class="feature__icon">
-                            <svg class="feature__icon-svg">
-                                <use href="#icon-history"></use>
-                            </svg>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="feature__icon mx-auto mb-3">
+                                    <svg class="feature__icon-svg">
+                                        <use href="#icon-history"></use>
+                                    </svg>
+                                </div>
+                                <h5 class="card-title fw-bold">Histórico Completo</h5>
+                                <p class="card-text text-muted">
+                                    Mantenha um registro de todos os QR codes escaneados e gerados. 
+                                    Organize e encontre facilmente seus códigos.
+                                </p>
+                            </div>
                         </div>
-                        <h3 class="feature__title">Histórico Completo</h3>
-                        <p class="feature__description">
-                            Mantenha um registro de todos os QR codes escaneados e gerados. 
-                            Organize e encontre facilmente seus códigos.
-                        </p>
                     </div>
                     
-                    <div class="feature">
-                        <div class="feature__icon">
-                            <svg class="feature__icon-svg">
-                                <use href="#icon-share"></use>
-                            </svg>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="feature__icon mx-auto mb-3">
+                                    <svg class="feature__icon-svg">
+                                        <use href="#icon-share"></use>
+                                    </svg>
+                                </div>
+                                <h5 class="card-title fw-bold">Compartilhamento</h5>
+                                <p class="card-text text-muted">
+                                    Compartilhe QR codes facilmente através de qualquer aplicativo. 
+                                    Envie códigos como imagem ou texto.
+                                </p>
+                            </div>
                         </div>
-                        <h3 class="feature__title">Compartilhamento</h3>
-                        <p class="feature__description">
-                            Compartilhe QR codes facilmente através de qualquer aplicativo. 
-                            Envie códigos como imagem ou texto.
-                        </p>
                     </div>
                     
-                    <div class="feature">
-                        <div class="feature__icon">
-                            <svg class="feature__icon-svg">
-                                <use href="#icon-cloud-sync"></use>
-                            </svg>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="feature__icon mx-auto mb-3">
+                                    <svg class="feature__icon-svg">
+                                        <use href="#icon-cloud-sync"></use>
+                                    </svg>
+                                </div>
+                                <h5 class="card-title fw-bold">Sincronização</h5>
+                                <p class="card-text text-muted">
+                                    Sincronize seus dados entre dispositivos com conta Google. 
+                                    Seus QR codes sempre disponíveis onde você estiver.
+                                </p>
+                            </div>
                         </div>
-                        <h3 class="feature__title">Sincronização</h3>
-                        <p class="feature__description">
-                            Sincronize seus dados entre dispositivos com conta Google. 
-                            Seus QR codes sempre disponíveis onde você estiver.
-                        </p>
                     </div>
                     
-                    <div class="feature">
-                        <div class="feature__icon">
-                            <svg class="feature__icon-svg">
-                                <use href="#icon-security"></use>
-                            </svg>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <div class="feature__icon mx-auto mb-3">
+                                    <svg class="feature__icon-svg">
+                                        <use href="#icon-security"></use>
+                                    </svg>
+                                </div>
+                                <h5 class="card-title fw-bold">Privacidade</h5>
+                                <p class="card-text text-muted">
+                                    Use o app sem criar conta ou sincronize com segurança. 
+                                    Seus dados protegidos e processados localmente.
+                                </p>
+                            </div>
                         </div>
-                        <h3 class="feature__title">Privacidade</h3>
-                        <p class="feature__description">
-                            Use o app sem criar conta ou sincronize com segurança. 
-                            Seus dados protegidos e processados localmente.
-                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Download Section -->
-        <section class="download section" id="download">
+        <section class="download section bg-primary text-white py-5" id="download">
             <div class="container">
-                <div class="download__container">
-                    <div class="download__content">
-                        <h2 class="download__title">Baixe o QRZap agora</h2>
-                        <p class="download__description">
-                            Disponível gratuitamente na Google Play Store. 
-                            Instale e comece a usar imediatamente.
-                        </p>
-                        
-                        <div class="download__buttons">
-                            <a href="https://play.google.com/store/apps/details?id=com.empf.qrzap" 
-                               class="button button--primary button--large" target="_blank">
-                                <img src="images/google-play-badge.png" alt="Baixar na Google Play" class="download-badge">
-                            </a>
-                        </div>
-                        
-                        <div class="download__info">
-                            <div class="info-item">
-                                <svg class="info-item__icon">
-                                    <use href="#icon-check"></use>
-                                </svg>
-                                <span>Gratuito para sempre</span>
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12 mb-5 mb-lg-0">
+                        <div class="download__content">
+                            <h2 class="display-5 fw-bold mb-4">Baixe o QRZap agora</h2>
+                            <p class="lead mb-4 opacity-90">
+                                Disponível gratuitamente na Google Play Store. 
+                                Instale e comece a usar imediatamente.
+                            </p>
+                            
+                            <div class="mb-5">
+                                <a href="https://play.google.com/store/apps/details?id=com.empf.qrzap" 
+                                   class="btn btn-light btn-lg px-4 py-3 d-flex align-items-center justify-content-center" target="_blank">
+                                    <img src="images/google-play-badge.png" alt="Baixar na Google Play" height="50" class="me-2">
+                                    <span class="d-none d-sm-inline">Baixar na Google Play</span>
+                                </a>
                             </div>
-                            <div class="info-item">
-                                <svg class="info-item__icon">
-                                    <use href="#icon-check"></use>
-                                </svg>
-                                <span>Sem anúncios intrusivos</span>
-                            </div>
-                            <div class="info-item">
-                                <svg class="info-item__icon">
-                                    <use href="#icon-check"></use>
-                                </svg>
-                                <span>Funciona offline</span>
+                            
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center">
+                                        <svg class="me-3" width="20" height="20" fill="currentColor">
+                                            <use href="#icon-check"></use>
+                                        </svg>
+                                        <span>Gratuito para sempre</span>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center">
+                                        <svg class="me-3" width="20" height="20" fill="currentColor">
+                                            <use href="#icon-check"></use>
+                                        </svg>
+                                        <span>Sem anúncios intrusivos</span>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center">
+                                        <svg class="me-3" width="20" height="20" fill="currentColor">
+                                            <use href="#icon-check"></use>
+                                        </svg>
+                                        <span>Funciona offline</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="download__preview">
-                        <div class="phone-mockup">
-                            <img src="images/phone-download.png" alt="QRZap Download Preview">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="download__preview text-center">
+                            <div class="phone-mockup mx-auto">
+                                <img src="images/phone-download.png" alt="QRZap Download Preview" class="img-fluid">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -369,62 +417,78 @@
         </section>
 
         <!-- About Section -->
-        <section class="about section" id="about">
+        <section class="about section py-5" id="about">
             <div class="container">
-                <div class="about__container grid">
-                    <div class="about__content">
-                        <h2 class="about__title">Sobre o QRZap</h2>
-                        <p class="about__description">
-                            O QRZap foi desenvolvido pensando na simplicidade e eficiência. 
-                            Nossa missão é tornar o trabalho com códigos QR mais fácil e acessível para todos.
-                        </p>
-                        
-                        <div class="about__features">
-                            <div class="about__feature">
-                                <svg class="about__feature-icon">
-                                    <use href="#icon-star"></use>
-                                </svg>
-                                <div>
-                                    <h4>Interface Intuitiva</h4>
-                                    <p>Design limpo e fácil de usar</p>
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12 mb-5 mb-lg-0">
+                        <div class="about__content">
+                            <h2 class="display-5 fw-bold mb-4">Sobre o QRZap</h2>
+                            <p class="lead mb-4 text-muted">
+                                O QRZap foi desenvolvido pensando na simplicidade e eficiência. 
+                                Nossa missão é tornar o trabalho com códigos QR mais fácil e acessível para todos.
+                            </p>
+                            
+                            <div class="row g-4 mb-5">
+                                <div class="col-12">
+                                    <div class="d-flex align-items-start">
+                                        <div class="about__feature-icon me-3 flex-shrink-0">
+                                            <svg class="about__feature-icon">
+                                                <use href="#icon-star"></use>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold mb-2">Interface Intuitiva</h5>
+                                            <p class="text-muted mb-0">Design limpo e fácil de usar</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="d-flex align-items-start">
+                                        <div class="about__feature-icon me-3 flex-shrink-0">
+                                            <svg class="about__feature-icon">
+                                                <use href="#icon-flash"></use>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold mb-2">Performance Rápida</h5>
+                                            <p class="text-muted mb-0">Escaneamento instantâneo</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="d-flex align-items-start">
+                                        <div class="about__feature-icon me-3 flex-shrink-0">
+                                            <svg class="about__feature-icon">
+                                                <use href="#icon-lock"></use>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold mb-2">Dados Seguros</h5>
+                                            <p class="text-muted mb-0">Privacidade garantida</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             
-                            <div class="about__feature">
-                                <svg class="about__feature-icon">
-                                    <use href="#icon-flash"></use>
-                                </svg>
-                                <div>
-                                    <h4>Performance Rápida</h4>
-                                    <p>Escaneamento instantâneo</p>
-                                </div>
+                            <div class="about__contact">
+                                <h5 class="fw-bold mb-3">Contato</h5>
+                                <p class="text-muted mb-3">Dúvidas, sugestões ou problemas? Entre em contato:</p>
+                                <a href="mailto:evandrotielcop@gmail.com" class="btn btn-outline-primary d-inline-flex align-items-center">
+                                    <svg class="me-2" width="20" height="20" fill="currentColor">
+                                        <use href="#icon-mail"></use>
+                                    </svg>
+                                    evandrotielcop@gmail.com
+                                </a>
                             </div>
-                            
-                            <div class="about__feature">
-                                <svg class="about__feature-icon">
-                                    <use href="#icon-lock"></use>
-                                </svg>
-                                <div>
-                                    <h4>Dados Seguros</h4>
-                                    <p>Privacidade garantida</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="about__contact">
-                            <h4>Contato</h4>
-                            <p>Dúvidas, sugestões ou problemas? Entre em contato:</p>
-                            <a href="mailto:evandrotielcop@gmail.com" class="contact-link">
-                                <svg class="contact-link__icon">
-                                    <use href="#icon-mail"></use>
-                                </svg>
-                                evandrotielcop@gmail.com
-                            </a>
                         </div>
                     </div>
                     
-                    <div class="about__image">
-                        <img src="images/about-illustration.png" alt="Sobre QRZap">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="about__image text-center">
+                            <img src="images/about-illustration.png" alt="Sobre QRZap" class="img-fluid rounded-3 shadow">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -432,58 +496,73 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="bg-dark text-white py-5">
         <div class="container">
-            <div class="footer__container grid">
-                <div class="footer__content">
-                    <div class="footer__logo">
-                        <img src="images/icon_qrzap.png" alt="QRZap Logo">
-                        <span>QRZap</span>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer__content">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/icon_qrzap.png" alt="QRZap Logo" width="32" height="32" class="me-2">
+                            <span class="fw-bold fs-4">QRZap</span>
+                        </div>
+                        <p class="text-muted mb-3">
+                            O aplicativo definitivo para escanear e gerar códigos QR. 
+                            Rápido, seguro e fácil de usar.
+                        </p>
+                        
+                        <div class="footer__social">
+                            <a href="mailto:evandrotielcop@gmail.com" class="btn btn-outline-light btn-sm">
+                                <svg class="me-2" width="16" height="16" fill="currentColor">
+                                    <use href="#icon-mail"></use>
+                                </svg>
+                                Contato
+                            </a>
+                        </div>
                     </div>
-                    <p class="footer__description">
-                        O aplicativo definitivo para escanear e gerar códigos QR. 
-                        Rápido, seguro e fácil de usar.
-                    </p>
-                    
-                    <div class="footer__social">
-                        <a href="mailto:evandrotielcop@gmail.com" class="footer__social-link">
-                            <svg class="footer__social-icon">
-                                <use href="#icon-mail"></use>
-                            </svg>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer__content">
+                        <h5 class="fw-bold mb-3">Links Rápidos</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#home" class="text-muted text-decoration-none">Início</a></li>
+                            <li class="mb-2"><a href="#features" class="text-muted text-decoration-none">Recursos</a></li>
+                            <li class="mb-2"><a href="#download" class="text-muted text-decoration-none">Download</a></li>
+                            <li class="mb-2"><a href="#about" class="text-muted text-decoration-none">Sobre</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer__content">
+                        <h5 class="fw-bold mb-3">Legal</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="privacy.html" class="text-muted text-decoration-none">Privacidade</a></li>
+                            <li class="mb-2"><a href="terms.html" class="text-muted text-decoration-none">Termos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer__content">
+                        <h5 class="fw-bold mb-3">Download</h5>
+                        <a href="https://play.google.com/store/apps/details?id=com.empf.qrzap" 
+                           class="d-inline-block" target="_blank">
+                            <img src="images/google-play-badge.png" alt="Baixar na Google Play" height="50">
                         </a>
                     </div>
                 </div>
-                
-                <div class="footer__content">
-                    <h3 class="footer__title">Links Rápidos</h3>
-                    <ul class="footer__links">
-                        <li><a href="#home" class="footer__link">Início</a></li>
-                        <li><a href="#features" class="footer__link">Recursos</a></li>
-                        <li><a href="#download" class="footer__link">Download</a></li>
-                        <li><a href="#about" class="footer__link">Sobre</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer__content">
-                    <h3 class="footer__title">Legal</h3>
-                    <ul class="footer__links">
-                        <li><a href="privacy.html" class="footer__link">Política de Privacidade</a></li>
-                        <li><a href="terms.html" class="footer__link">Termos de Uso</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer__content">
-                    <h3 class="footer__title">Download</h3>
-                    <a href="https://play.google.com/store/apps/details?id=com.empf.qrzap" 
-                       class="footer__download" target="_blank">
-                        <img src="images/google-play-badge.png" alt="Baixar na Google Play">
-                    </a>
-                </div>
             </div>
             
-            <div class="footer__copy">
-                <p>&copy; 2025 QRZap. Todos os direitos reservados.</p>
-                <p>Desenvolvido por Evandro Marques Pimenta Filho</p>
+            <hr class="my-4 border-secondary">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; 2025 QRZap. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-muted mb-0">Desenvolvido por Evandro Marques Pimenta Filho</p>
+                </div>
             </div>
         </div>
     </footer>
@@ -495,6 +574,9 @@
         </svg>
     </a>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
     <!-- JavaScript -->
     <script src="js/main.js"></script>
 </body>
