@@ -19,6 +19,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
   
   <style>
     body {
@@ -30,38 +33,54 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="index.html">
                     <img src="images/icon_qrzap.png" alt="QRZap Logo" width="32" height="32" class="me-2">
                     <span class="fw-bold text-primary fs-4">QRZap</span>
                 </a>
                 
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link fw-medium" href="index.html">Início</a>
+                            <a class="nav-link fw-medium" href="index.html">
+                                <i class="fas fa-home me-1 d-lg-none"></i>Início
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-medium" href="index.html#features">Recursos</a>
+                            <a class="nav-link fw-medium" href="index.html#features">
+                                <i class="fas fa-star me-1 d-lg-none"></i>Recursos
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-medium" href="index.html#download">Download</a>
+                            <a class="nav-link fw-medium" href="index.html#tester">
+                                <i class="fas fa-user-plus me-1 d-lg-none"></i>Ser Testador
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-medium" href="index.html#about">Sobre</a>
+                            <a class="nav-link fw-medium" href="index.html#about">
+                                <i class="fas fa-info-circle me-1 d-lg-none"></i>Sobre
+                            </a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle fw-medium active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Legal
+                                <i class="fas fa-gavel me-1 d-lg-none"></i>Legal
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item active" href="privacy.html">Privacidade</a></li>
-                                <li><a class="dropdown-item" href="terms.html">Termos</a></li>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item active" href="privacy.html">
+                                    <i class="fas fa-shield-alt me-2"></i>Privacidade
+                                </a></li>
+                                <li><a class="dropdown-item" href="terms.html">
+                                    <i class="fas fa-file-contract me-2"></i>Termos
+                                </a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="delete-account.html">
+                                    <i class="fas fa-user-times me-2"></i>Excluir Conta
+                                </a></li>
                             </ul>
                         </li>
                     </ul>
@@ -237,7 +256,7 @@
                     <div class="footer__content">
                         <div class="d-flex align-items-center mb-3">
                             <img src="images/icon_qrzap.png" alt="QRZap Logo" width="32" height="32" class="me-2">
-                            <span class="fw-bold fs-4">QRZap</span>
+                            <span class="fw-bold fs-4">QRZap v1.0.2</span>
                         </div>
                         <p class="text-muted mb-3">
                             O aplicativo definitivo para escanear e gerar códigos QR. 
@@ -261,7 +280,7 @@
                         <ul class="list-unstyled">
                             <li class="mb-2"><a href="index.html" class="text-muted text-decoration-none">Início</a></li>
                             <li class="mb-2"><a href="index.html#features" class="text-muted text-decoration-none">Recursos</a></li>
-                            <li class="mb-2"><a href="index.html#download" class="text-muted text-decoration-none">Download</a></li>
+                            <li class="mb-2"><a href="index.html#tester" class="text-muted text-decoration-none">Ser Testador</a></li>
                             <li class="mb-2"><a href="index.html#about" class="text-muted text-decoration-none">Sobre</a></li>
                         </ul>
                     </div>
@@ -277,15 +296,6 @@
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer__content">
-                        <h5 class="fw-bold mb-3">Download</h5>
-                        <a href="https://play.google.com/store/apps/details?id=com.empf.qrzap" 
-                           class="d-inline-block" target="_blank">
-                            <img src="images/google-play-badge.png" alt="Baixar na Google Play" height="50">
-                        </a>
-                    </div>
-                </div>
             </div>
             
             <hr class="my-4 border-secondary">

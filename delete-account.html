@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Excluir sua Conta - QRZap</title>
+    <meta name="description" content="Aprenda como excluir sua conta do QRZap de forma segura e permanente.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
+  <style>
+    body {
+      background-color: #fff;
+      color: #000;
+    }
+    .step-number {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    .warning-box {
+      background-color: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .info-box {
+      background-color: #d1ecf1;
+      border: 1px solid #bee5eb;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="images/icon_qrzap.png" alt="QRZap Logo" width="32" height="32" class="me-2">
+                    <span class="fw-bold text-primary fs-4">QRZap</span>
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium" href="index.html">
+                                <i class="fas fa-home me-1 d-lg-none"></i>Início
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium" href="index.html#features">
+                                <i class="fas fa-star me-1 d-lg-none"></i>Recursos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium" href="index.html#tester">
+                                <i class="fas fa-user-plus me-1 d-lg-none"></i>Ser Testador
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium" href="index.html#about">
+                                <i class="fas fa-info-circle me-1 d-lg-none"></i>Sobre
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fw-medium active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-gavel me-1 d-lg-none"></i>Legal
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="privacy.html">
+                                    <i class="fas fa-shield-alt me-2"></i>Privacidade
+                                </a></li>
+                                <li><a class="dropdown-item" href="terms.html">
+                                    <i class="fas fa-file-contract me-2"></i>Termos
+                                </a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item active" href="delete-account.html">
+                                    <i class="fas fa-user-times me-2"></i>Excluir Conta
+                                </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content" style="padding-top: 100px;">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <!-- Header -->
+                    <div class="text-center mb-5">
+                        <h1 class="display-4 fw-bold text-primary mb-3">Como Excluir sua Conta</h1>
+                        <p class="lead text-muted">
+                            Guia passo a passo para excluir sua conta do QRZap de forma segura
+                        </p>
+                    </div>
+
+                    <!-- Warning Box -->
+                    <div class="warning-box">
+                        <div class="d-flex align-items-start">
+                            <svg class="me-3 mt-1" width="24" height="24" fill="#856404" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <div>
+                                <h5 class="fw-bold text-warning mb-2">⚠️ Aviso Importante</h5>
+                                <p class="mb-0">
+                                    A exclusão da conta é <strong>permanente e irreversível</strong>. Todos os seus dados serão 
+                                    removidos do Firebase e do dispositivo. Certifique-se de fazer backup de qualquer 
+                                    informação importante antes de prosseguir.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Process Info -->
+                    <div class="info-box">
+                        <div class="d-flex align-items-start">
+                            <svg class="me-3 mt-1" width="24" height="24" fill="#0c5460" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <div>
+                                <h5 class="fw-bold text-info mb-2">ℹ️ Processo Simplificado</h5>
+                                <p class="mb-0">
+                                    O processo de exclusão foi <strong>simplificado</strong> na versão 1.0.2. 
+                                    Não é mais necessário inserir sua senha - apenas confirme digitando "APAGAR" 
+                                    para garantir que você realmente deseja excluir sua conta.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Steps -->
+                    <div class="mb-5">
+                        <h2 class="h3 fw-bold mb-4">Passo a Passo</h2>
+                        
+                        <!-- Step 1 -->
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="step-number">1</div>
+                            <div>
+                                <h4 class="h5 fw-bold mb-2">Abra o QRZap</h4>
+                                <p class="text-muted mb-0">
+                                    Inicie o aplicativo QRZap no seu dispositivo Android.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="step-number">2</div>
+                            <div>
+                                <h4 class="h5 fw-bold mb-2">Acesse as Configurações</h4>
+                                <p class="text-muted mb-0">
+                                    Na barra de navegação inferior, toque no ícone de <strong>configurações (⚙️)</strong> 
+                                    (último ícone à direita).
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="step-number">3</div>
+                            <div>
+                                <h4 class="h5 fw-bold mb-2">Acesse "Detalhes da Conta"</h4>
+                                <p class="text-muted mb-0">
+                                    Na tela de configurações, na seção <strong>"Conta do Usuário"</strong>, 
+                                    toque no botão <strong>"Detalhes"</strong> (botão com ícone de informação).
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="step-number">4</div>
+                            <div>
+                                <h4 class="h5 fw-bold mb-2">Selecione "Deletar Conta"</h4>
+                                <p class="text-muted mb-0">
+                                    Na janela de detalhes da conta, na seção <strong>"Opções de Segurança"</strong>, 
+                                    você verá três opções. Toque em <strong>"🗑️ Deletar Conta"</strong>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="step-number">5</div>
+                            <div>
+                                <h4 class="h5 fw-bold mb-2">Confirme a Exclusão</h4>
+                                <p class="text-muted mb-0">
+                                    Uma janela de aviso aparecerá explicando as consequências da exclusão. 
+                                    Leia atentamente e toque em <strong>"Continuar"</strong> para prosseguir.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="step-number">6</div>
+                            <div>
+                                <h4 class="h5 fw-bold mb-2">Digite "APAGAR"</h4>
+                                <p class="text-muted mb-0">
+                                    Uma nova janela aparecerá solicitando confirmação. 
+                                    Digite exatamente <strong>"APAGAR"</strong> no campo de texto e toque em <strong>"Apagar Conta"</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- What Happens Next -->
+                    <div class="info-box">
+                        <h3 class="h4 fw-bold mb-3">O que acontece após a exclusão?</h3>
+                        <ul class="mb-0">
+                            <li><strong>Conta removida:</strong> Sua conta será permanentemente excluída do Firebase</li>
+                            <li><strong>Dados locais apagados:</strong> Todos os QR codes salvos no dispositivo serão removidos</li>
+                            <li><strong>Logout automático:</strong> Você será deslogado automaticamente</li>
+                            <li><strong>Interface atualizada:</strong> A tela de configurações será atualizada para mostrar que não há usuário logado</li>
+                            <li><strong>Mensagem de sucesso:</strong> Uma mensagem verde confirmará que a conta foi deletada com sucesso</li>
+                        </ul>
+                    </div>
+
+                    <!-- Alternative Options -->
+                    <div class="mt-5">
+                        <h3 class="h4 fw-bold mb-3">Alternativas à Exclusão</h3>
+                        <p class="text-muted mb-3">
+                            Antes de excluir sua conta, considere estas alternativas:
+                        </p>
+                        <ul>
+                            <li><strong>Limpar histórico:</strong> Use a opção "Limpar Histórico" na seção "Histórico" das configurações para remover apenas os QR codes salvos</li>
+                            <li><strong>Fazer logout:</strong> Use o botão "Sair" na seção "Conta do Usuário" para sair da conta mantendo os dados salvos</li>
+                            <li><strong>Usar sem conta:</strong> Continue usando o app sem fazer login para manter total privacidade</li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="mt-5 text-center">
+                        <h3 class="h4 fw-bold mb-3">Precisa de Ajuda?</h3>
+                        <p class="text-muted mb-3">
+                            Se você tiver dificuldades para excluir sua conta ou tiver dúvidas, 
+                            entre em contato conosco.
+                        </p>
+                        <a href="mailto:evandrotielcop@gmail.com" class="btn btn-primary">
+                            <svg class="me-2" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            Contatar Suporte
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="d-flex align-items-center">
+                        <img src="images/icon_qrzap.png" alt="QRZap Logo" width="24" height="24" class="me-2">
+                        <span class="fw-bold">QRZap v1.0.2</span>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="footer__links">
+                        <a href="privacy.html" class="text-white-50 me-3">Privacidade</a>
+                        <a href="terms.html" class="text-white-50 me-3">Termos</a>
+                        <a href="delete-account.html" class="text-white-50">Excluir Conta</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

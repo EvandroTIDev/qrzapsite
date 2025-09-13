@@ -104,8 +104,8 @@ sr.reveal(`.home__content`)
 sr.reveal(`.home__images`, {delay: 600, origin: 'bottom'})
 sr.reveal(`.section__header`, {delay: 200})
 sr.reveal(`.feature`, {interval: 200})
-sr.reveal(`.download__content`, {delay: 200})
-sr.reveal(`.download__preview`, {delay: 400, origin: 'right'})
+sr.reveal(`.tester__content`, {delay: 200})
+sr.reveal(`.tester__form`, {delay: 400, origin: 'right'})
 sr.reveal(`.about__content`, {delay: 200})
 sr.reveal(`.about__image`, {delay: 400, origin: 'left'})
 
@@ -217,7 +217,7 @@ images.forEach(img => imageObserver.observe(img))
 
 /*=============== ANALYTICS TRACKING ===============*/
 // Track button clicks
-document.querySelectorAll('.button, .download-badge').forEach(button => {
+document.querySelectorAll('.button').forEach(button => {
     button.addEventListener('click', (e) => {
         const buttonText = button.textContent || button.alt || 'Unknown Button'
         console.log(`Button clicked: ${buttonText}`)
@@ -339,4 +339,80 @@ function throttle(func, limit) {
 // Apply throttling to scroll events
 window.addEventListener('scroll', throttle(scrollActive, 100))
 window.addEventListener('scroll', throttle(scrollUp, 100))
+
+/*=============== TESTER FORM SUBMISSION ===============*/
+document.addEventListener('DOMContentLoaded', function() {
+    const testerForm = document.getElementById('testerForm');
+    const formMessage = document.getElementById('formMessage');
+    
+    if (testerForm) {
+        testerForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(testerForm);
+            const data = {
+                name: formData.get('name'),
+                age: formData.get('age'),
+                email: formData.get('email'),
+                phone: formData.get('phone')
+            };
+            
+            // Show loading state
+            const submitBtn = testerForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status"></span>Enviando...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Send email using EmailJS or similar service
+                // For now, we'll use a simple mailto approach
+                const subject = 'Nova Inscrição - Testador Beta QRZap';
+                const body = `
+Nova inscrição para o programa de testadores beta do QRZap:
+
+Nome: ${data.name}
+Idade: ${data.age}
+E-mail: ${data.email}
+Modelo do Celular: ${data.phone}
+
+Data da inscrição: ${new Date().toLocaleString('pt-BR')}
+                `;
+                
+                // Create mailto link
+                const mailtoLink = `mailto:evandrotielcop@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                
+                // Open email client
+                window.location.href = mailtoLink;
+                
+                // Show success message
+                showMessage('Inscrição enviada com sucesso! Verifique seu cliente de e-mail.', 'success');
+                
+                // Reset form
+                testerForm.reset();
+                
+            } catch (error) {
+                console.error('Erro ao enviar inscrição:', error);
+                showMessage('Erro ao enviar inscrição. Tente novamente.', 'error');
+            } finally {
+                // Restore button state
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+    
+    function showMessage(text, type) {
+        if (formMessage) {
+            formMessage.textContent = text;
+            formMessage.className = `mt-3 text-center alert alert-${type === 'success' ? 'success' : 'danger'}`;
+            formMessage.style.display = 'block';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
+        }
+    }
+});
 

@@ -6,31 +6,25 @@
   --header-height: 3.5rem;
 
   /*========== Colors ==========*/
-  /* Cores oficiais do QRZap */
-  --primary-color: #1800AD;        /* Azul principal do app */
+  /* Paleta padronizada do QRZap */
+  --primary-color: #1800AD;        /* Azul principal */
   --primary-color-alt: #140099;    /* Azul mais escuro para hover */
-  --secondary-color: #1800AD;      /* Mesmo azul para consistência */
+  --secondary-color: #6c757d;      /* Cinza claro secundário */
   --accent-color: #1800AD;         /* Azul para destaques */
   
   /* Bootstrap custom colors */
   --bs-primary: #1800AD;
   --bs-primary-rgb: 24, 0, 173;
   
-  /* Cores de texto e fundo */
-  --title-color: #000000;          /* Preto puro */
+  /* Cores de texto e fundo - Tema Claro */
+  --title-color: #000000;          /* Preto para títulos */
   --text-color: #333333;           /* Cinza escuro para texto */
-  --text-color-light: #666666;     /* Cinza médio para texto secundário */
-  --body-color: #ffffff;           /* Branco puro */
-  --container-color: #ffffff;      /* Branco puro para containers */
+  --text-color-light: #6c757d;     /* Cinza médio para texto secundário */
+  --body-color: #ffffff;           /* Branco para fundo */
+  --container-color: #ffffff;      /* Branco para containers */
   --border-color: #e0e0e0;         /* Cinza claro para bordas */
   
-  /*========== Dark theme colors ==========*/
-  /* Cores do tema escuro do QRZap */
-  --title-color-dark: #ffffff;        /* Branco puro para títulos */
-  --text-color-dark: #cccccc;         /* Cinza claro para texto */
-  --body-color-dark: #000000;         /* Preto puro (pureBlack do app) */
-  --container-color-dark: #2a2a2a;    /* Cinza escuro (darkGrey do app) */
-  --border-color-dark: #404040;       /* Cinza médio para bordas */
+  /*========== Site sempre no modo claro ==========*/
 
   /*========== Font and typography ==========*/
   --body-font: 'Inter', sans-serif;
@@ -127,35 +121,24 @@ button {
   outline: none;
 }
 
-/* Forçar fundo branco em todos os elementos principais (exceto footer) */
+/*=============== FUNDOS PADRONIZADOS ===============*/
+/* Fundos principais - Tema claro */
 .container,
 .section:not(.footer),
 .header,
 .nav,
 .home,
 .features,
-.download,
+.tester,
 .about,
 main,
 section:not(.footer),
 article,
 div:not(.footer) {
-  background-color: #ffffff !important;
+  background-color: var(--body-color) !important; /* Branco */
 }
 
-/* Garantir contraste de texto */
-p, span, li, td, th {
-  color: var(--text-color) !important;
-}
-
-/* Links em azul para destaque */
-a {
-  color: var(--primary-color) !important;
-}
-
-a:hover {
-  color: var(--primary-color-alt) !important;
-}
+/* Site sempre no modo claro - sem tema escuro */
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
@@ -218,7 +201,7 @@ a:hover {
   overflow: hidden;
 }
 
-/*=============== HEADER & NAV ===============*/
+/*=============== HEADER & NAV RESPONSIVO ===============*/
 .header {
   width: 100%;
   background-color: var(--body-color);
@@ -226,33 +209,119 @@ a:hover {
   top: 0;
   left: 0;
   z-index: var(--z-fixed);
-  transition: 0.4s;
-  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
 }
 
-/* Bootstrap navbar customizations */
+/* Navbar customizations */
+.navbar {
+  padding: 0.75rem 0;
+  transition: all 0.3s ease;
+}
+
 .navbar-brand {
   font-weight: var(--font-bold);
+  transition: all 0.3s ease;
 }
 
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+/* Navbar links */
 .navbar-nav .nav-link {
   font-weight: var(--font-medium);
   color: var(--text-color) !important;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 0.75rem 1rem !important;
+  border-radius: 0.5rem;
+  margin: 0 0.25rem;
+  position: relative;
 }
 
-.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:hover {
+  color: var(--primary-color) !important;
+  background-color: rgba(24, 0, 173, 0.1);
+  transform: translateY(-2px);
+}
+
 .navbar-nav .nav-link.active {
   color: var(--primary-color) !important;
+  background-color: rgba(24, 0, 173, 0.15);
+  font-weight: var(--font-semi-bold);
 }
 
+/* Navbar toggler */
 .navbar-toggler {
   border: none;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
 }
 
 .navbar-toggler:focus {
-  box-shadow: none;
+  box-shadow: 0 0 0 0.2rem rgba(24, 0, 173, 0.25);
+}
+
+.navbar-toggler:hover {
+  background-color: rgba(24, 0, 173, 0.1);
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.dropdown-item {
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  font-weight: var(--font-medium);
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(24, 0, 173, 0.1);
+  color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+.dropdown-item.active {
+  background-color: rgba(24, 0, 173, 0.15);
+  color: var(--primary-color);
+  font-weight: var(--font-semi-bold);
+}
+
+.dropdown-item i {
+  width: 16px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Ícones do menu mobile */
+.navbar-nav .nav-link i {
+  width: 20px;
+  text-align: center;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.navbar-nav .nav-link:hover i {
+  opacity: 1;
+}
+
+/* Divider do dropdown */
+.dropdown-divider {
+  margin: 0.5rem 0;
+  border-color: rgba(24, 0, 173, 0.1);
 }
 
 .nav {
@@ -474,6 +543,10 @@ a:hover {
   order: 2;
   justify-self: center;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
 }
 
 .home__phone {
@@ -507,77 +580,59 @@ a:hover {
     height: 540px;
     border-radius: 2.5rem;
   }
+  
+  .home__phone-mockup-below {
+    bottom: -80px;
+  }
+  
+  .home__phone-mockup-below img {
+    max-width: 250px !important;
+  }
 }
 
-.home__qr-codes {
-  position: absolute;
+.home__phone-container {
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-}
-
-.qr-code {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background-color: var(--body-color);
-  border-radius: var(--border-radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-lg);
-  animation: float 3s ease-in-out infinite;
 }
 
-.qr-code img {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--border-radius);
+.home__phone-mockup-fixed {
+  width: 240px;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.home__phone-mockup-fixed img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+
 
 @media screen and (min-width: 768px) {
-  .qr-code {
-    width: 60px;
-    height: 60px;
+  .home__images {
+    min-height: 700px;
   }
   
-  .qr-code img {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-.qr-code--1 {
-  top: 20%;
-  right: -20px;
-  animation-delay: 0s;
-}
-
-.qr-code--2 {
-  bottom: 30%;
-  left: -20px;
-  animation-delay: 1s;
-}
-
-.qr-code--3 {
-  top: 60%;
-  right: -15px;
-  animation-delay: 2s;
-}
-
-@media screen and (min-width: 768px) {
-  .qr-code--1 {
-    right: -30px;
+  .home__phone-mockup-fixed {
+    width: 280px;
+    height: 560px;
   }
   
-  .qr-code--2 {
-    left: -30px;
-  }
-  
-  .qr-code--3 {
-    right: -20px;
-  }
 }
 
 @keyframes float {
@@ -637,55 +692,81 @@ a:hover {
   font-size: var(--normal-font-size);
 }
 
-/* Bootstrap button customizations */
+/*=============== BOTÕES PADRONIZADOS ===============*/
+/* Botões primários - Estado normal */
 .btn-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #ffffff !important;
   font-weight: var(--font-medium);
   transition: all 0.3s ease;
 }
 
+/* Ícones e texto brancos no estado normal */
+.btn-primary svg,
+.btn-primary span,
+.btn-primary {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Botão primário hover - sempre no modo claro */
 .btn-primary:hover {
-  background-color: var(--primary-color-alt);
-  border-color: var(--primary-color-alt);
+  background-color: var(--body-color) !important; /* Fundo branco */
+  border-color: var(--primary-color) !important; /* Borda azul */
+  color: var(--primary-color) !important; /* Texto azul */
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
 
+.btn-primary:hover svg,
+.btn-primary:hover span {
+  color: var(--primary-color) !important;
+  fill: var(--primary-color) !important;
+}
+
+/* Botão primário sempre no modo claro */
+
+/* Botões outline - Estado normal */
 .btn-outline-primary {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
   border-color: var(--primary-color);
+  background-color: transparent;
   font-weight: var(--font-medium);
   transition: all 0.3s ease;
 }
 
+/* Hover para tema claro */
+/* Botões outline hover - sempre no modo claro */
 .btn-outline-primary:hover {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
+  color: #ffffff !important;
   border-color: var(--primary-color);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
+
+.btn-outline-light {
+  color: #ffffff !important;
+  border-color: #ffffff;
+  background-color: transparent;
+}
+
+.btn-outline-light:hover {
+  background-color: #ffffff !important;
+  color: var(--primary-color) !important;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Botões outline sempre no modo claro */
 
 .btn-light:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
 
-.download-badge {
-  height: 50px;
-  transition: 0.3s;
-  max-width: 100%;
-}
-
-.download-badge:hover {
-  transform: scale(1.05);
-}
-
-@media screen and (min-width: 576px) {
-  .download-badge {
-    height: 60px;
-  }
-}
 
 .button__icon {
   width: 1.2rem;
@@ -818,25 +899,34 @@ a:hover {
   line-height: 1.6;
 }
 
-/*=============== DOWNLOAD ===============*/
-.download {
+/*=============== TESTER ===============*/
+.tester {
   background: var(--primary-color);
   color: #fff;
 }
 
-/* Bootstrap download section customizations */
+/* Bootstrap tester section customizations */
 .bg-primary {
   background-color: var(--primary-color) !important;
 }
 
-.download .btn-light {
-  background-color: #ffffff;
-  border-color: #ffffff;
-  color: var(--primary-color);
+.tester .btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #ffffff;
   font-weight: var(--font-medium);
+  transition: all 0.3s ease;
 }
 
-.download__container {
+.tester .btn-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  color: black;
+}
+
+.tester__container {
   grid-template-columns: 1fr;
   gap: 2rem;
   align-items: center;
@@ -844,25 +934,25 @@ a:hover {
 }
 
 @media screen and (min-width: 768px) {
-  .download__container {
+  .tester__container {
     grid-template-columns: 1fr 1fr;
     text-align: left;
   }
 }
 
-.download__title {
+.tester__title {
   font-size: var(--h1-font-size);
   margin-bottom: var(--mb-1);
   color: #fff;
 }
 
-.download__description {
+.tester__description {
   margin-bottom: var(--mb-2-5);
   font-size: var(--normal-font-size);
   opacity: 0.9;
 }
 
-.download__info {
+.tester__info {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -882,8 +972,20 @@ a:hover {
   fill: var(--primary-color);
 }
 
-.download__preview {
+.tester__form {
   justify-self: center;
+}
+
+.tester__form .form-control {
+  border: 2px solid #e9ecef;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.tester__form .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .phone-mockup {
@@ -1225,7 +1327,7 @@ a:hover {
 
 .footer .btn-outline-light {
   border-color: rgba(255, 255, 255, 0.5);
-  color: #ffffff;
+  color: #ffffff !important;
   transition: all 0.3s ease;
 }
 
@@ -1332,14 +1434,6 @@ a:hover {
   fill: #fff;
 }
 
-.footer__download img {
-  height: 50px;
-  transition: 0.3s;
-}
-
-.footer__download img:hover {
-  transform: scale(1.05);
-}
 
 .footer__copy {
   padding-top: 2rem;
@@ -1425,6 +1519,10 @@ a:hover {
     font-size: 1.5rem;
   }
 
+  .home__images {
+    min-height: 500px;
+  }
+
   .home__phone {
     width: 200px;
     height: 400px;
@@ -1435,15 +1533,11 @@ a:hover {
     height: 380px;
   }
 
-  .qr-code {
-    width: 40px;
-    height: 40px;
+  .home__phone-mockup-fixed {
+    width: 200px;
+    height: 400px;
   }
-
-  .qr-code img {
-    width: 30px;
-    height: 30px;
-  }
+  
 }
 
 /* Melhorias de responsividade para mobile */
@@ -1483,105 +1577,125 @@ a:hover {
   }
 }
 
-/* For medium devices */
-@media screen and (min-width: 768px) {
-  .nav {
-    height: calc(var(--header-height) + 1.5rem);
-    column-gap: 3rem;
+/*=============== RESPONSIVIDADE DO MENU ===============*/
+/* Desktop - Menu horizontal */
+@media screen and (min-width: 992px) {
+  .navbar-nav {
+    gap: 0.5rem;
   }
-
-  .nav__close,
-  .nav__toggle {
-    display: none;
+  
+  .navbar-nav .nav-link {
+    margin: 0 0.25rem;
   }
-
-  .nav__list {
-    flex-direction: row;
-    column-gap: 3rem;
+  
+  .dropdown-menu {
+    min-width: 200px;
   }
-
-.nav__menu {
-  margin-left: auto;
 }
 
+/* Tablet - Menu adaptado */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .navbar-nav {
+    gap: 0.25rem;
+  }
+  
+  .navbar-nav .nav-link {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.9rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile - Menu colapsável melhorado */
 @media screen and (max-width: 767px) {
-  .nav__menu {
-    position: fixed;
-    bottom: -100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--body-color);
-    padding: 2rem 1.5rem 4rem;
-    box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 1.5rem 1.5rem 0 0;
-    transition: 0.3s;
-    z-index: var(--z-fixed);
-  }
-
-  /* Menu ativo - slide up */
-  .nav__menu.show-menu {
-    bottom: 0;
-  }
-
-  .nav__list {
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-  }
-
-  .nav__link {
-    font-weight: var(--font-medium);
-    color: var(--title-color);
-    font-size: 1.1rem;
+  .navbar {
     padding: 0.5rem 0;
-    display: block;
   }
-
-  .nav__link:hover,
-  .nav__link.active-link {
-    color: var(--primary-color);
-  }
-
-  .nav__close {
-    position: absolute;
-    right: 1.3rem;
-    bottom: 0.5rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--title-color);
-    display: block;
-    z-index: var(--z-tooltip);
-  }
-
-  .nav__close:hover {
-    color: var(--primary-color);
-  }
-
-  .nav__toggle {
-    color: var(--title-color);
-    font-weight: var(--font-medium);
+  
+  .navbar-brand {
     font-size: 1.1rem;
-    cursor: pointer;
-    display: block;
-    z-index: var(--z-fixed);
   }
-
-  .nav__toggle:hover {
-    color: var(--primary-color);
+  
+  .navbar-brand img {
+    width: 28px;
+    height: 28px;
   }
+  
+  .navbar-collapse {
+    background-color: var(--body-color);
+    border-radius: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+  }
+  
+  .navbar-nav {
+    gap: 0.5rem;
+  }
+  
+  .navbar-nav .nav-link {
+    padding: 1rem !important;
+    margin: 0.25rem 0;
+    text-align: center;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(24, 0, 173, 0.2);
+  }
+  
+  .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    box-shadow: none;
+    background-color: rgba(24, 0, 173, 0.05);
+    border-radius: 0.75rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+  }
+  
+  .dropdown-item {
+    padding: 0.75rem 1rem;
+    margin: 0.25rem 0;
+    border-radius: 0.5rem;
+  }
+  
+  .navbar-toggler {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+  }
+  
+  .navbar-toggler-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
 
-  /* Overlay quando menu está aberto */
-  body.menu-open::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: calc(var(--z-fixed) - 1);
-    opacity: 0;
-    animation: fadeIn 0.3s ease-in-out forwards;
+/* Mobile pequeno */
+@media screen and (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1rem;
+  }
+  
+  .navbar-brand img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .navbar-nav .nav-link {
+    padding: 0.875rem !important;
+    font-size: 0.95rem;
+  }
+  
+  .dropdown-item {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -1613,7 +1727,7 @@ a:hover {
     gap: 3rem;
   }
 
-  .download__container {
+  .tester__container {
     gap: 4rem;
   }
 }
@@ -1627,69 +1741,22 @@ a:hover {
   .section__title {
     font-size: 2.5rem;
   }
-}
-
-/* Dark theme */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --title-color: var(--title-color-dark);
-    --text-color: var(--text-color-dark);
-    --body-color: var(--body-color-dark);
-    --container-color: var(--container-color-dark);
-    --border-color: var(--border-color-dark);
+  
+  .home__images {
+    min-height: 800px;
   }
   
-  /* Garantir que o footer sempre tenha fundo escuro */
-  .footer {
-    background-color: #000000 !important;
-    color: #ffffff !important;
+  .home__phone-mockup-fixed {
+    width: 320px;
+    height: 640px;
   }
   
-  .footer__logo,
-  .footer__title,
-  .footer__description,
-  .footer__copy p {
-    color: #ffffff !important;
-  }
 }
 
-/*=============== FUNDO BRANCO FORÇADO ===============*/
-/* Garantir fundo branco em todas as páginas */
-html, body {
-  background-color: #ffffff !important;
-}
+/* Site sempre no modo claro - sem tema escuro */
 
-/* Forçar fundo branco em todas as seções principais (exceto footer) */
-.section:not(.footer) {
-  background-color: #ffffff !important;
-}
-
-/* Garantir contraste de texto em todas as páginas (exceto footer) */
-body, .container, .section:not(.footer), .home, .features, .about {
-  background-color: #ffffff !important;
-}
-
-/* Texto escuro para boa legibilidade (exceto footer) */
-.footer h1, .footer h2, .footer h3, .footer h4, .footer h5, .footer h6,
-:not(.footer) h1, :not(.footer) h2, :not(.footer) h3, :not(.footer) h4, :not(.footer) h5, :not(.footer) h6 {
-  color: #000000 !important;
-}
-
-.footer p, .footer span, .footer div, .footer li,
-:not(.footer) p, :not(.footer) span, :not(.footer) div, :not(.footer) li {
-  color: #333333 !important;
-}
-
-/* Links em azul para destaque (exceto footer) */
-:not(.footer) a {
-  color: #1800AD !important;
-}
-
-:not(.footer) a:hover {
-  color: #140099 !important;
-}
-
-/* Manter footer preto com texto branco */
+/*=============== FOOTER PADRONIZADO ===============*/
+/* Footer sempre preto com texto branco */
 .footer {
   background-color: #000000 !important;
   color: #ffffff !important;
@@ -1699,7 +1766,6 @@ body, .container, .section:not(.footer), .home, .features, .about {
   color: #ffffff !important;
 }
 
-/* Garantir que todos os elementos do footer tenham cores corretas */
 .footer h1, .footer h2, .footer h3, .footer h4, .footer h5, .footer h6 {
   color: #ffffff !important;
 }
@@ -1720,13 +1786,46 @@ body, .container, .section:not(.footer), .home, .features, .about {
   color: #cccccc !important;
 }
 
-/* Bootstrap text color overrides */
+/*=============== ELEMENTOS DESTACADOS ===============*/
+/* Palavras destacadas - Tema claro */
 .text-primary {
-  color: var(--primary-color) !important;
+  color: var(--primary-color) !important; /* Azul */
 }
+
+/* Garantir que text-primary seja sempre azul no tema claro */
+.text-primary,
+h1 .text-primary,
+h2 .text-primary,
+h3 .text-primary,
+h4 .text-primary,
+h5 .text-primary,
+h6 .text-primary,
+span.text-primary {
+  color: var(--primary-color) !important; /* Azul */
+}
+
+/* Palavras destacadas sempre azuis no modo claro */
 
 .text-muted {
   color: #6c757d !important;
+}
+
+/* Text-muted sempre cinza no modo claro */
+
+/*=============== CAIXAS DE AVISO E INFORMAÇÃO ===============*/
+/* Tema claro */
+.warning-box h5,
+.warning-box p,
+.warning-box .fw-bold {
+  color: #856404 !important; /* Amarelo escuro */
+}
+
+.info-box h3,
+.info-box h5,
+.info-box p,
+.info-box li,
+.info-box .fw-bold {
+  color: #0c5460 !important; /* Azul escuro */
 }
 
 /* Bootstrap background overrides */
@@ -1734,10 +1833,8 @@ body, .container, .section:not(.footer), .home, .features, .about {
   background-color: #ffffff !important;
 }
 
-/*=============== CORREÇÃO DE ÍCONES SVG ===============*/
-/* Garantir que todos os ícones SVG tenham cores apropriadas */
-
-/* Ícones em fundos coloridos - manter branco */
+/*=============== ÍCONES SVG PADRONIZADOS ===============*/
+/* Ícones em fundos coloridos - sempre brancos */
 .about__feature-icon,
 .button__icon,
 .scrollup__icon,
@@ -1745,12 +1842,12 @@ body, .container, .section:not(.footer), .home, .features, .about {
   fill: #ffffff !important;
 }
 
-/* Ícones de features - usar azul do tema */
+/* Ícones de features - azul no tema claro */
 .feature__icon-svg {
   fill: var(--primary-color) !important;
 }
 
-/* Ícones em fundos brancos - usar azul do tema */
+/* Ícones em fundos brancos - azul no tema claro */
 .nav__toggle-icon,
 .nav__close-icon,
 .contact-link__icon,
@@ -1768,29 +1865,40 @@ body, .container, .section:not(.footer), .home, .features, .about {
   fill: var(--primary-color-alt) !important;
 }
 
+/* Ícones sempre azuis no modo claro */
+
 /* Garantir que ícones não herdem cor do texto */
 svg {
   fill: inherit;
 }
 
-/* Específico para ícones que devem ser azuis */
-.about__feature-icon,
-.button__icon,
-.scrollup__icon,
-.footer__social-icon {
-  fill: #ffffff !important;
+/*=============== CORES PADRONIZADAS ===============*/
+/* Textos principais - Tema claro */
+h1:not(.text-primary):not(.text-muted):not(.text-white):not(.text-dark),
+h2:not(.text-primary):not(.text-muted):not(.text-white):not(.text-dark),
+h3:not(.text-primary):not(.text-muted):not(.text-white):not(.text-dark),
+h4:not(.text-primary):not(.text-muted):not(.text-white):not(.text-dark),
+h5:not(.text-primary):not(.text-muted):not(.text-white):not(.text-dark),
+h6:not(.text-primary):not(.text-muted):not(.text-white):not(.text-dark) {
+  color: var(--title-color) !important; /* Preto no tema claro */
 }
 
-/* Ícones de features em fundo branco - usar azul */
-.feature__icon-svg {
-  fill: var(--primary-color) !important;
+/* Parágrafos e textos - Tema claro */
+p:not(.text-primary):not(.text-muted):not(.text-white):not(.text-dark),
+span:not(.text-primary):not(.text-muted):not(.text-white):not(.text-dark),
+div:not(.text-primary):not(.text-muted):not(.text-white):not(.text-dark),
+li:not(.text-primary):not(.text-muted):not(.text-white):not(.text-dark) {
+  color: var(--text-color) !important; /* Cinza escuro no tema claro */
 }
 
-.nav__toggle-icon,
-.nav__close-icon,
-.contact-link__icon,
-.info-item__icon {
-  fill: var(--primary-color) !important;
+/* Links - Tema claro */
+a:not(.text-primary):not(.text-muted):not(.text-white):not(.text-dark) {
+  color: var(--primary-color) !important; /* Azul */
 }
+
+a:not(.text-primary):not(.text-muted):not(.text-white):not(.text-dark):hover {
+  color: var(--primary-color-alt) !important; /* Azul mais escuro */
 }
+
+/* Site sempre no modo claro - sem tema escuro */
 
