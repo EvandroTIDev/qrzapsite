@@ -127,20 +127,19 @@ button {
   outline: none;
 }
 
-/* Forçar fundo branco em todos os elementos principais */
+/* Forçar fundo branco em todos os elementos principais (exceto footer) */
 .container,
-.section,
+.section:not(.footer),
 .header,
 .nav,
 .home,
 .features,
 .download,
 .about,
-.footer,
 main,
-section,
+section:not(.footer),
 article,
-div {
+div:not(.footer) {
   background-color: #ffffff !important;
 }
 
@@ -780,7 +779,7 @@ a:hover {
 .feature__icon-svg {
   width: 2.5rem;
   height: 2.5rem;
-  fill: #ffffff;
+  fill: var(--primary-color);
 }
 
 .feature__title {
@@ -1514,31 +1513,33 @@ html, body {
   background-color: #ffffff !important;
 }
 
-/* Forçar fundo branco em todas as seções principais */
-.section {
+/* Forçar fundo branco em todas as seções principais (exceto footer) */
+.section:not(.footer) {
   background-color: #ffffff !important;
 }
 
-/* Garantir contraste de texto em todas as páginas */
-body, .container, .section, .home, .features, .about {
+/* Garantir contraste de texto em todas as páginas (exceto footer) */
+body, .container, .section:not(.footer), .home, .features, .about {
   background-color: #ffffff !important;
 }
 
-/* Texto escuro para boa legibilidade */
-h1, h2, h3, h4, h5, h6 {
+/* Texto escuro para boa legibilidade (exceto footer) */
+.footer h1, .footer h2, .footer h3, .footer h4, .footer h5, .footer h6,
+:not(.footer) h1, :not(.footer) h2, :not(.footer) h3, :not(.footer) h4, :not(.footer) h5, :not(.footer) h6 {
   color: #000000 !important;
 }
 
-p, span, div, li {
+.footer p, .footer span, .footer div, .footer li,
+:not(.footer) p, :not(.footer) span, :not(.footer) div, :not(.footer) li {
   color: #333333 !important;
 }
 
-/* Links em azul para destaque */
-a {
+/* Links em azul para destaque (exceto footer) */
+:not(.footer) a {
   color: #1800AD !important;
 }
 
-a:hover {
+:not(.footer) a:hover {
   color: #140099 !important;
 }
 
@@ -1550,6 +1551,27 @@ a:hover {
 
 .footer * {
   color: #ffffff !important;
+}
+
+/* Garantir que todos os elementos do footer tenham cores corretas */
+.footer h1, .footer h2, .footer h3, .footer h4, .footer h5, .footer h6 {
+  color: #ffffff !important;
+}
+
+.footer p, .footer span, .footer div, .footer li {
+  color: #ffffff !important;
+}
+
+.footer a {
+  color: #ffffff !important;
+}
+
+.footer a:hover {
+  color: #cccccc !important;
+}
+
+.footer .text-muted {
+  color: #cccccc !important;
 }
 
 /* Bootstrap text color overrides */
@@ -1570,12 +1592,16 @@ a:hover {
 /* Garantir que todos os ícones SVG tenham cores apropriadas */
 
 /* Ícones em fundos coloridos - manter branco */
-.feature__icon-svg,
 .about__feature-icon,
 .button__icon,
 .scrollup__icon,
 .footer__social-icon {
   fill: #ffffff !important;
+}
+
+/* Ícones de features - usar azul do tema */
+.feature__icon-svg {
+  fill: var(--primary-color) !important;
 }
 
 /* Ícones em fundos brancos - usar azul do tema */
@@ -1602,12 +1628,16 @@ svg {
 }
 
 /* Específico para ícones que devem ser azuis */
-.feature__icon-svg,
 .about__feature-icon,
 .button__icon,
 .scrollup__icon,
 .footer__social-icon {
   fill: #ffffff !important;
+}
+
+/* Ícones de features em fundo branco - usar azul */
+.feature__icon-svg {
+  fill: var(--primary-color) !important;
 }
 
 .nav__toggle-icon,
