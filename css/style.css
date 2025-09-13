@@ -14,10 +14,10 @@
   
   /* Cores de texto e fundo */
   --title-color: #000000;          /* Preto puro */
-  --text-color: #666666;           /* Cinza médio para texto */
-  --text-color-light: #999999;     /* Cinza claro para texto secundário */
+  --text-color: #333333;           /* Cinza escuro para texto */
+  --text-color-light: #666666;     /* Cinza médio para texto secundário */
   --body-color: #ffffff;           /* Branco puro */
-  --container-color: #f5f5f5;      /* Cinza muito claro (lightGrey do app) */
+  --container-color: #ffffff;      /* Branco puro para containers */
   --border-color: #e0e0e0;         /* Cinza claro para bordas */
   
   /*========== Dark theme colors ==========*/
@@ -82,12 +82,13 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #ffffff !important;
 }
 
 body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  background-color: var(--body-color);
+  background-color: #ffffff !important;
   color: var(--text-color);
   line-height: 1.6;
 }
@@ -104,7 +105,11 @@ ul {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--primary-color-alt);
 }
 
 img {
@@ -116,6 +121,37 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
+}
+
+/* Forçar fundo branco em todos os elementos principais */
+.container,
+.section,
+.header,
+.nav,
+.home,
+.features,
+.download,
+.about,
+.footer,
+main,
+section,
+article,
+div {
+  background-color: #ffffff !important;
+}
+
+/* Garantir contraste de texto */
+p, span, li, td, th {
+  color: var(--text-color) !important;
+}
+
+/* Links em azul para destaque */
+a {
+  color: var(--primary-color) !important;
+}
+
+a:hover {
+  color: var(--primary-color-alt) !important;
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
@@ -290,6 +326,7 @@ button {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  background-color: #ffffff !important;
 }
 
 .home__container {
@@ -574,7 +611,7 @@ button {
 
 /*=============== FEATURES ===============*/
 .features {
-  background-color: var(--container-color);
+  background-color: #ffffff !important;
 }
 
 .features__container {
@@ -742,7 +779,7 @@ button {
 
 /*=============== ABOUT ===============*/
 .about {
-  background-color: #ffffff;
+  background-color: #ffffff !important;
 }
 
 .about__container {
@@ -1198,16 +1235,26 @@ button {
     box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.15);
     border-radius: 1.5rem 1.5rem 0 0;
     transition: 0.3s;
+    z-index: var(--z-fixed);
+  }
+
+  /* Menu ativo - slide up */
+  .nav__menu.show-menu {
+    bottom: 0;
   }
 
   .nav__list {
     flex-direction: column;
     gap: 2rem;
+    text-align: center;
   }
 
   .nav__link {
     font-weight: var(--font-medium);
     color: var(--title-color);
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    display: block;
   }
 
   .nav__link:hover,
@@ -1222,6 +1269,12 @@ button {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--title-color);
+    display: block;
+    z-index: var(--z-tooltip);
+  }
+
+  .nav__close:hover {
+    color: var(--primary-color);
   }
 
   .nav__toggle {
@@ -1229,7 +1282,44 @@ button {
     font-weight: var(--font-medium);
     font-size: 1.1rem;
     cursor: pointer;
+    display: block;
+    z-index: var(--z-fixed);
   }
+
+  .nav__toggle:hover {
+    color: var(--primary-color);
+  }
+
+  /* Overlay quando menu está aberto */
+  body.menu-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: calc(var(--z-fixed) - 1);
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in-out forwards;
+  }
+}
+
+/* Animação para o overlay */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Melhorar a transição do menu */
+.nav__menu {
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav__menu.show-menu {
+  transform: translateY(0);
 }
 
 
@@ -1282,3 +1372,49 @@ button {
     color: #ffffff !important;
   }
 }
+
+/*=============== FUNDO BRANCO FORÇADO ===============*/
+/* Garantir fundo branco em todas as páginas */
+html, body {
+  background-color: #ffffff !important;
+}
+
+/* Forçar fundo branco em todas as seções principais */
+.section {
+  background-color: #ffffff !important;
+}
+
+/* Garantir contraste de texto em todas as páginas */
+body, .container, .section, .home, .features, .about, .download {
+  background-color: #ffffff !important;
+}
+
+/* Texto escuro para boa legibilidade */
+h1, h2, h3, h4, h5, h6 {
+  color: #000000 !important;
+}
+
+p, span, div, li {
+  color: #333333 !important;
+}
+
+/* Links em azul para destaque */
+a {
+  color: #1800AD !important;
+}
+
+a:hover {
+  color: #140099 !important;
+}
+
+/* Manter footer preto com texto branco */
+.footer {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.footer * {
+  color: #ffffff !important;
+}
+}
+

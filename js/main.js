@@ -6,18 +6,43 @@ const navMenu = document.getElementById('nav-menu'),
 /*===== MENU SHOW =====*/
 /* Validate if constant exists */
 if(navToggle){
-    navToggle.addEventListener('click', () =>{
+    navToggle.addEventListener('click', (e) =>{
+        e.preventDefault()
+        e.stopPropagation()
         navMenu.classList.add('show-menu')
+        // Adicionar overlay para fechar o menu ao clicar fora
+        document.body.classList.add('menu-open')
     })
 }
 
 /*===== MENU HIDDEN =====*/
 /* Validate if constant exists */
 if(navClose){
-    navClose.addEventListener('click', () =>{
+    navClose.addEventListener('click', (e) =>{
+        e.preventDefault()
+        e.stopPropagation()
         navMenu.classList.remove('show-menu')
+        document.body.classList.remove('menu-open')
     })
 }
+
+/*===== FECHAR MENU AO CLICAR FORA =====*/
+document.addEventListener('click', (e) => {
+    if (navMenu && navMenu.classList.contains('show-menu')) {
+        if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+            navMenu.classList.remove('show-menu')
+            document.body.classList.remove('menu-open')
+        }
+    }
+})
+
+/*===== FECHAR MENU COM ESC =====*/
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu && navMenu.classList.contains('show-menu')) {
+        navMenu.classList.remove('show-menu')
+        document.body.classList.remove('menu-open')
+    }
+})
 
 /*=============== REMOVE MENU MOBILE ===============*/
 const navLink = document.querySelectorAll('.nav__link')
@@ -26,6 +51,7 @@ function linkAction(){
     const navMenu = document.getElementById('nav-menu')
     // When we click on each nav__link, we remove the show-menu class
     navMenu.classList.remove('show-menu')
+    document.body.classList.remove('menu-open')
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
@@ -313,3 +339,4 @@ function throttle(func, limit) {
 // Apply throttling to scroll events
 window.addEventListener('scroll', throttle(scrollActive, 100))
 window.addEventListener('scroll', throttle(scrollUp, 100))
+
