@@ -9,6 +9,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     
@@ -27,43 +30,42 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <nav class="nav container">
-            <div class="nav__logo">
-                <a href="index.html">
-                    <img src="images/icon_qrzap.png" alt="QRZap Logo" class="nav__logo-img">
-                    <span class="nav__logo-text">QRZap</span>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="images/icon_qrzap.png" alt="QRZap Logo" width="32" height="32" class="me-2">
+                    <span class="fw-bold text-primary fs-4">QRZap</span>
                 </a>
-            </div>
-            
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="index.html" class="nav__link">Início</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="index.html#features" class="nav__link">Recursos</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="index.html#download" class="nav__link">Download</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="index.html#about" class="nav__link">Sobre</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="privacy.html" class="nav__link active-link">Privacidade</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="terms.html" class="nav__link">Termos</a>
-                    </li>
-                </ul>
                 
-                <div class="nav__close" id="nav-close">
-                    <i class="ri-close-line"></i>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium" href="index.html">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium" href="index.html#features">Recursos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium" href="index.html#download">Download</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-medium" href="index.html#about">Sobre</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fw-medium active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Legal
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item active" href="privacy.html">Privacidade</a></li>
+                                <li><a class="dropdown-item" href="terms.html">Termos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="ri-menu-line"></i>
             </div>
         </nav>
     </header>
@@ -228,50 +230,73 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="bg-dark text-white py-5">
         <div class="container">
-            <div class="footer__container grid">
-                <div class="footer__content">
-                    <div class="footer__logo">
-                        <img src="images/icon_qrzap.png" alt="QRZap Logo">
-                        <span>QRZap</span>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer__content">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="images/icon_qrzap.png" alt="QRZap Logo" width="32" height="32" class="me-2">
+                            <span class="fw-bold fs-4">QRZap</span>
+                        </div>
+                        <p class="text-muted mb-3">
+                            O aplicativo definitivo para escanear e gerar códigos QR. 
+                            Rápido, seguro e fácil de usar.
+                        </p>
+                        
+                        <div class="footer__social">
+                            <a href="mailto:evandrotielcop@gmail.com" class="btn btn-outline-light btn-sm">
+                                <svg class="me-2" width="16" height="16" fill="currentColor">
+                                    <use href="#icon-mail"></use>
+                                </svg>
+                                Contato
+                            </a>
+                        </div>
                     </div>
-                    <p class="footer__description">
-                        O aplicativo definitivo para escanear e gerar códigos QR. 
-                        Rápido, seguro e fácil de usar.
-                    </p>
                 </div>
                 
-                <div class="footer__content">
-                    <h3 class="footer__title">Links Rápidos</h3>
-                    <ul class="footer__links">
-                        <li><a href="index.html" class="footer__link">Início</a></li>
-                        <li><a href="index.html#features" class="footer__link">Recursos</a></li>
-                        <li><a href="index.html#download" class="footer__link">Download</a></li>
-                        <li><a href="index.html#about" class="footer__link">Sobre</a></li>
-                    </ul>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer__content">
+                        <h5 class="fw-bold mb-3">Links Rápidos</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="index.html" class="text-muted text-decoration-none">Início</a></li>
+                            <li class="mb-2"><a href="index.html#features" class="text-muted text-decoration-none">Recursos</a></li>
+                            <li class="mb-2"><a href="index.html#download" class="text-muted text-decoration-none">Download</a></li>
+                            <li class="mb-2"><a href="index.html#about" class="text-muted text-decoration-none">Sobre</a></li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="footer__content">
-                    <h3 class="footer__title">Legal</h3>
-                    <ul class="footer__links">
-                        <li><a href="privacy.html" class="footer__link">Política de Privacidade</a></li>
-                        <li><a href="terms.html" class="footer__link">Termos de Uso</a></li>
-                    </ul>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer__content">
+                        <h5 class="fw-bold mb-3">Legal</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="privacy.html" class="text-muted text-decoration-none">Privacidade</a></li>
+                            <li class="mb-2"><a href="terms.html" class="text-muted text-decoration-none">Termos</a></li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <div class="footer__content">
-                    <h3 class="footer__title">Download</h3>
-                    <a href="https://play.google.com/store/apps/details?id=com.empf.qrzap" 
-                       class="footer__download" target="_blank">
-                        <img src="images/google-play-badge.png" alt="Baixar na Google Play">
-                    </a>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer__content">
+                        <h5 class="fw-bold mb-3">Download</h5>
+                        <a href="https://play.google.com/store/apps/details?id=com.empf.qrzap" 
+                           class="d-inline-block" target="_blank">
+                            <img src="images/google-play-badge.png" alt="Baixar na Google Play" height="50">
+                        </a>
+                    </div>
                 </div>
             </div>
             
-            <div class="footer__copy">
-                <p>&copy; 2025 QRZap. Todos os direitos reservados.</p>
-                <p>Desenvolvido por Evandro Marques Pimenta Filho</p>
+            <hr class="my-4 border-secondary">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; 2025 QRZap. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-muted mb-0">Desenvolvido por Evandro Marques Pimenta Filho</p>
+                </div>
             </div>
         </div>
     </footer>
@@ -281,8 +306,10 @@
         <i class="ri-arrow-up-line"></i>
     </a>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
     <!-- JavaScript -->
-    <script src="https://unpkg.com/remixicon@3.5.0/fonts/remixicon.css"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
