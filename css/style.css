@@ -307,7 +307,7 @@ a:hover {
 .nav__toggle-icon {
   width: 1.5rem;
   height: 1.5rem;
-  fill: currentColor;
+  fill: var(--primary-color);
 }
 
 /* Show menu */
@@ -606,7 +606,7 @@ a:hover {
 .button__icon {
   width: 1.2rem;
   height: 1.2rem;
-  fill: currentColor;
+  fill: #ffffff;
 }
 
 /*=============== FEATURES ===============*/
@@ -674,7 +674,7 @@ a:hover {
 .feature__icon-svg {
   width: 2.5rem;
   height: 2.5rem;
-  fill: #fff;
+  fill: #ffffff;
 }
 
 .feature__title {
@@ -736,7 +736,7 @@ a:hover {
 .info-item__icon {
   width: 1rem;
   height: 1rem;
-  fill: #10b981;
+  fill: var(--primary-color);
 }
 
 .download__preview {
@@ -866,7 +866,7 @@ a:hover {
 .contact-link__icon {
   width: 1.2rem;
   height: 1.2rem;
-  fill: currentColor;
+  fill: var(--primary-color);
 }
 
 .about__image {
@@ -1415,6 +1415,57 @@ a:hover {
 
 .footer * {
   color: #ffffff !important;
+}
+
+/*=============== CORREÇÃO DE ÍCONES SVG ===============*/
+/* Garantir que todos os ícones SVG tenham cores apropriadas */
+
+/* Ícones em fundos coloridos - manter branco */
+.feature__icon-svg,
+.about__feature-icon,
+.button__icon,
+.scrollup__icon,
+.footer__social-icon {
+  fill: #ffffff !important;
+}
+
+/* Ícones em fundos brancos - usar azul do tema */
+.nav__toggle-icon,
+.nav__close-icon,
+.contact-link__icon,
+.info-item__icon {
+  fill: var(--primary-color) !important;
+}
+
+/* Hover states para ícones */
+.nav__toggle:hover .nav__toggle-icon,
+.nav__close:hover .nav__close-icon {
+  fill: var(--primary-color-alt) !important;
+}
+
+.contact-link:hover .contact-link__icon {
+  fill: var(--primary-color-alt) !important;
+}
+
+/* Garantir que ícones não herdem cor do texto */
+svg {
+  fill: inherit;
+}
+
+/* Específico para ícones que devem ser azuis */
+.feature__icon-svg,
+.about__feature-icon,
+.button__icon,
+.scrollup__icon,
+.footer__social-icon {
+  fill: #ffffff !important;
+}
+
+.nav__toggle-icon,
+.nav__close-icon,
+.contact-link__icon,
+.info-item__icon {
+  fill: var(--primary-color) !important;
 }
 }
 
